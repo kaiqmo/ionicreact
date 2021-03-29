@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
-
+import "@ionic/react/css/ionic.bundle.css";
+import {IonApp, IonContent, IonHeader, IonToolbar, IonTitle, IonButton} from "@ionic/react";
 function App() {
+  const [state, setState] = useState(1);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <IonApp>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>
+            AgroDem
+          </IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <h1> {state} </h1>
+        <IonButton onClick={()=> setState(state + 1)}>Increase</IonButton>
+        <IonButton onClick={()=> setState(state - 1)}>Decrease</IonButton>
+      </IonContent>
+    </IonApp>
   );
 }
 
